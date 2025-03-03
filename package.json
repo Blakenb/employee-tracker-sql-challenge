@@ -1,0 +1,27 @@
+{
+  "name": "code_is_fun",
+  "version": "1.0.0",
+  "description": "Put your description here.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ladvien/code_is_fun.git"
+  },
+  "author": "Unknown",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ladvien/code_is_fun/issues"
+  },
+  "homepage": "https://github.com/Ladvien/code_is_fun#readme",
+  "dependencies": {
+    "@types/node": "^22.13.5",
+    "inquirer": "^8.2.4",
+    "markdown-table": "^3.0.4",
+    "pg": "^8.13.3"
+  }
+}
