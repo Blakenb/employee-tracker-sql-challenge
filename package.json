@@ -1,27 +1,27 @@
 {
-  "name": "code_is_fun",
+  "name": "solved",
   "version": "1.0.0",
-  "description": "Put your description here.",
-  "main": "src/index.js",
+  "description": "",
   "type": "module",
+  "main": "server.js",
   "scripts": {
-    "start": "node --env-file=.env src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ladvien/code_is_fun.git"
-  },
-  "author": "Unknown",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Ladvien/code_is_fun/issues"
-  },
-  "homepage": "https://github.com/Ladvien/code_is_fun#readme",
   "dependencies": {
-    "@types/node": "^22.13.5",
-    "inquirer": "^8.2.4",
-    "markdown-table": "^3.0.4",
-    "pg": "^8.13.3"
+    "colors": "^1.4.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.17.1",
+    "inquirer": "^12.4.2",
+    "pg": "^8.11.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/pg": "^8.11.6",
+    "typescript": "^5.2.2"
   }
 }
