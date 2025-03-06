@@ -66,7 +66,7 @@ const mainMenu = async () => {
     case "ADD AN EMPLOYEE":
       await addEmployee();
       break;
-    case "UPDATE AN EMPLOYEE":
+    case "UPDATE AN EMPLOYEE ROLE":
       await updateEmployee();
       break;
     case "EXIT":
@@ -102,10 +102,9 @@ const addDepartment = async () => {
   ]);
 
   const { departmentName } = answers;
-  await pool.query(
-    `INSERT INTO department (name) VALUES ($1) ON CONLICT (name) DO NOTHING;`,
-    [departmentName]
-  );
+  await pool.query(`INSERT INTO department (name) VALUES ($1);`, [
+    departmentName,
+  ]);
   console.log(colors.green("Department inserted successfully!"));
 };
 
@@ -190,7 +189,7 @@ const addEmployee = async () => {
     `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4)`,
     [EmployeeFirstName, EmployeeLastName, EmployeeRole, EmployeeManager]
   );
-  console.log(colors.zalgo("Employee inserted successfully!"));
+  console.log("Employee inserted successfully!");
 };
 
 const updateEmployee = async () => {
@@ -207,20 +206,17 @@ const updateEmployee = async () => {
     name: department.name,
     value: department.id,
   }));
-  console.log(departmentChoices);
 
   const managerChoices = employees.rows.map((employee) => ({
     name: `${employee.first_name} ${employee.last_name}`,
     value: employee.id,
   }));
-  console.log(managerChoices);
 
   const roles = await pool.query("SELECT id, title FROM role");
   const roleChoices = roles.rows.map((role) => ({
     name: role.title,
     value: role.id,
   }));
-  console.log(roles);
 
   const answers = await inquirer.prompt([
     {
